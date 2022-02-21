@@ -1,11 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './Pages/Home/Home/Home';
+import Notfound from './Pages/Notfound/Notfound';
+import Explore from './Pages/Home/Explore/Explore';
 
 function App() {
   return (
     <div className="App">
-      <h1></h1>
-      <h1></h1>
+      <BrowserRouter>
+
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
+          <Route path="/explore">
+            <Explore />
+          </Route>
+          <Route path="*">
+            <Notfound></Notfound>
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
 
     </div>
   );
