@@ -6,7 +6,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import MessageIcon from '@mui/icons-material/Message';
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import PaymentsIcon from '@mui/icons-material/Payments';
-import { Container,  Typography } from '@mui/material';
+import { Container,  Divider,  Typography } from '@mui/material';
 const Promote = () => {
     return (
         <Container>
@@ -15,40 +15,45 @@ const Promote = () => {
                     <Grid item xs={6} md={3} sx={{display:'flex',justifyContent:'center',alignItems:'center',textAlign:'left'}}>
                         <LocalShippingIcon sx={{color:'#EA5100 ',fontSize:35,pr:2}} />
                         <Box>
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography variant="h6"sx={{fontSize:15}} gutterBottom component="div">
                                 FREE DELIVERY
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 For all orders over $120
                             </Typography>
                         </Box>
+                        <Divider sx={{ml:5,w:'100%'}} orientation="vertical" flexItem />
+                       
                     </Grid>
+                    
                     <Grid item xs={6} md={3}sx={{display:'flex',justifyContent:'center',alignItems:'center',textAlign:'left'}}>
                         <PaymentsIcon sx={{color:'#EA5100 ',fontSize:35,pr:2}} />
                         <Box>
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography variant="h6" sx={{fontSize:15}}  gutterBottom component="div">
                                 SAFE PAYMENT
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 100% secure payment
                             </Typography>
                         </Box>
+                        <Divider sx={{ml:5,w:'100%'}} orientation="vertical" flexItem />
                     </Grid>
                     <Grid item xs={6} md={3}sx={{display:'flex',justifyContent:'center',alignItems:'center',textAlign:'left'}}>
                         <MessageIcon sx={{color:'#EA5100 ',fontSize:35,pr:2}} />
                         <Box>
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography variant="h6" sx={{fontSize:15}}  gutterBottom component="div">
                                 24/7 HELP CENTER
                             </Typography>
                             <Typography variant="body2" gutterBottom>
                                 Delicated 24/7 support
                             </Typography>
                         </Box>
+                        <Divider sx={{ml:5,w:'100%'}} orientation="vertical" flexItem />
                     </Grid>
                     <Grid item xs={6} md={3}sx={{display:'flex',justifyContent:'center',alignItems:'center',textAlign:'left'}}>
                         <PhoneInTalkIcon sx={{color:'#EA5100 ',fontSize:35,pr:2}} />
                         <Box>
-                            <Typography variant="h6" gutterBottom component="div">
+                            <Typography variant="h6" sx={{fontSize:15}}  gutterBottom component="div">
                                 FRIENDLY SERVICES
                             </Typography>
                             <Typography variant="body2" gutterBottom>
