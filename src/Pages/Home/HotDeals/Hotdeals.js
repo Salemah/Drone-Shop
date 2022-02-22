@@ -56,7 +56,7 @@ const Hotdeals = () => {
                 </Grid>
                 <Grid item xs={12} md={4}>
                     <Box style={{ background: `url(${b3})`, width: '100%', height: 450 }}>
-                        <Typography variant="h4" sx={{ pt: 8 }}    >
+                        <Typography variant="h4" sx={{ pt: 8,px:2 }}    >
                             Sale 30% Off
                             Top Computer Case Gaming
                         </Typography>
