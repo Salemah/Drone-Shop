@@ -77,11 +77,14 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              
+                <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink style={{ textDecoration: 'none', color: 'black',mt:2 }} to="/explore">
+            <Button color="inherit">Explore</Button>
+
+          </NavLink>
                 </MenuItem>
-              ))}
+            
             </Menu>
           </Box>
           <Typography
