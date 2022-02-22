@@ -14,7 +14,10 @@ const Services = () => {
 
     }, [])
     return (
-        <Box sx={{ flexGrow: 1,mx:5,my:5 }}>
+        <Box sx={{ flexGrow: 1,mx:5,my:5 }} data-aos="fade-up">
+            <Typography variant="h4" sx={{ fontWeight: 600,my:3 }} component="div">
+                                    Drone Collection
+                                </Typography>
             <Grid container spacing={2}>
             {
                 products.map(product =>
@@ -30,7 +33,7 @@ const Services = () => {
                                     alt="Paella dish"
                                 />
                                 <Typography variant="h6" sx={{ fontWeight: 600, }} component="div">
-                                    {product.name}
+                                    {product.name.slice(0,20)}
                                 </Typography>
                                 <Typography variant="h5" sx={{ fontSize: 15, fontWeight: 500, color: '#F81FD3', }} component="div">
                                     {product.price}
