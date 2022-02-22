@@ -4,6 +4,7 @@ import Header from '../../Shared/Header/Header';
 import Banner from '../Banne/Banner';
 import Hotdeals from '../HotDeals/Hotdeals';
 import Promote from '../Promote/Promote';
+import Review from '../Review/Review';
 import Services from '../Service/Services/Services';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Services></Services>
             <Divider></Divider>
             <Hotdeals></Hotdeals>
+            <Review></Review>
         </div>
     );
 };
