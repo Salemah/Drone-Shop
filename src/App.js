@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
 import Notfound from './Pages/Notfound/Notfound';
 import Explore from './Pages/Home/Explore/Explore';
-import Allproducts from './Pages/Home/Allproducts/Allproducts';
-import Testt from './Pages/Home/tst/Testt';
+import Service from './Pages/Home/Service/Service/Service';
+
 
 function App() {
   return (
@@ -13,9 +13,7 @@ function App() {
       <BrowserRouter>
 
         <Switch>
-        <Route path="/tst">
-            <Testt/>
-          </Route>
+       
           <Route exact path="/">
             <Home></Home>
           </Route>
@@ -26,7 +24,7 @@ function App() {
             <Explore />
           </Route>
           <Route path="/drone">
-            <Allproducts/>
+            <Service/>
           </Route>
           <Route path="*">
             <Notfound></Notfound>

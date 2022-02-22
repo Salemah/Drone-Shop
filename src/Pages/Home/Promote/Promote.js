@@ -10,7 +10,7 @@ import { Container,  Divider,  Typography } from '@mui/material';
 const Promote = () => {
     return (
         <Container>
-            <Box sx={{ flexGrow: 1,my:3 }}>
+            <Box sx={{ flexGrow: 1,my:5 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={6} md={3} sx={{display:'flex',justifyContent:'center',alignItems:'center',textAlign:'left'}}>
                         <LocalShippingIcon sx={{color:'#EA5100 ',fontSize:35,pr:2}} />
