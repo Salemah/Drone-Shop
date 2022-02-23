@@ -6,6 +6,7 @@ import Notfound from './Pages/Notfound/Notfound';
 import Explore from './Pages/Home/Explore/Explore';
 import Service from './Pages/Home/Service/Service/Service';
 import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Register/Register';
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/register">
+            <Register/>
           </Route>
           <Route path="/allproducts">
             <Service/>

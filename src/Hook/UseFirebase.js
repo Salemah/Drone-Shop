@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import handleInitialize from '../Pages/Login/Firebase/FirebaseInitialize';
 handleInitialize();
 const UseFirebase = () => {
@@ -14,10 +14,21 @@ const UseFirebase = () => {
             });
 
     }
+    const emailpassRegister = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+              
+                const user = result.user;
+              
+            })
+            .catch((error) => {
+                
+            });
+
+    }
 
 
-
-    return{GoogleSignin}
+    return { GoogleSignin,emailpassRegister }
 };
 
 export default UseFirebase;
