@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Box, Button, Container, Divider, Grid, TextField, Typography } from '@mui/material';
 import google from '../../images/google.png'
 import { NavLink } from 'react-router-dom';
-import UseFirebase from '../../Hook/UseFirebase';
+import UseAuth from '../../Hook/UseAuth';
+
 const Register = () => {
-    const {emailpassRegister} = UseFirebase();
+    const {emailpassRegister} = UseAuth();
     const [regdata, setRegData] = useState({});
 
     const handleOnChange = e => {
@@ -13,7 +14,7 @@ const Register = () => {
         const newData = { ...regdata };
         newData[feild] = value;
         setRegData(newData);
-        console.log(newData);
+        
     }
     const handleonSubmit = e => {
         emailpassRegister(regdata.email,regdata.password);

@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link, NavLink } from 'react-router-dom';
+import UseAuth from '../../../Hook/UseAuth';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -19,7 +20,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const { user, Logout } = UseAuth();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -77,14 +78,14 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              
-                <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink style={{ textDecoration: 'none', color: 'black',mt:2 }} to="/explore">
-            <Button color="inherit">Explore</Button>
 
-          </NavLink>
-                </MenuItem>
-            
+              <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink style={{ textDecoration: 'none', color: 'black', mt: 2 }} to="/explore">
+                  <Button color="inherit">Explore</Button>
+
+                </NavLink>
+              </MenuItem>
+
             </Menu>
           </Box>
           <Typography
@@ -93,23 +94,28 @@ const Header = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-           <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone Shop</Link>
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone Shop</Link>
           </Typography>
-        {/*  */}
-          
-        <NavLink style={{ textDecoration: 'none', color: 'white',mt:2 }} to="/allproducts">
-            <Button color="inherit">Shop</Button>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone Shop</Link>
+            </Typography>
+            {/*  */}
 
-          </NavLink>
-          <NavLink style={{ textDecoration: 'none', color: 'white',mt:2 }} to="/login">
-            <Button color="inherit">Login</Button>
+            <NavLink style={{ textDecoration: 'none', color: 'white', mt: 2 }} to="/allproducts">
+              <Button color="inherit">Shop</Button>
 
-          </NavLink>
-          {/* <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
+            </NavLink>
+            {user?.email &&
+
+              <Typography textAlign="center">{user.displayName}</Typography>
+
+
+            }
+            {user?.email ?
+              <Button onClick={Logout} color="inherit">Logout</Button> : <Link to='/login' > <Button sx={{ color: 'white', textDecoration: 'none' }}>Login</Button></Link>
+            }
+            {/* <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
             <Button color="inherit">Dashboard</Button>
 
           </NavLink> */}

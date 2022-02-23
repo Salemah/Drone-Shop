@@ -5,9 +5,29 @@ import Grid from '@mui/material/Grid';
 import { Alert, Button, LinearProgress, TextField, Typography } from '@mui/material';
 import google from '../../../images/google.png'
 import { NavLink } from 'react-router-dom';
-import UseFirebase from '../../../Hook/UseFirebase';
+import UseAuth from '../../../Hook/UseAuth';
+
 const Login = () => {
-   const{ GoogleSignin } = UseFirebase();
+   const{ GoogleSignin,passwordSign } = UseAuth();
+   const [loginData, setLoginData] = React.useState({});
+
+   const handleOnChange = e => {
+    const feild = e.target.name;
+    const value = e.target.value;
+    const newlogindata = { ...loginData };
+    newlogindata[feild] = value;
+    setLoginData(newlogindata);
+    console.log(newlogindata);
+
+
+};
+const handleLoginSubmit = e => {
+    passwordSign(loginData.email, loginData.password);
+    e.preventDefault();
+};
+
+
+
     return (
         <Container>
         <Box sx={{ flexGrow: 1 }}>
@@ -18,14 +38,15 @@ const Login = () => {
                             {/* <img src={} style={{ width: 100, marginTop: 46, marginBottom: '30px' }} alt="" /> */}
                             <Typography sx={{ py: 3, fontWeight: 600, fontSize: 20 }}> Login With</Typography>
                             {/* // */}
-                            <form >
+                            <form onSubmit={handleLoginSubmit} >
                                 <TextField
                                     sx={{ width: '50%', m: 1 }}
                                     id="filled-number"
                                     label="Email"
                                     type="text"
                                     name="email"
-                                    //onChange={handleOnChange}
+                                   
+                                    onChange={handleOnChange}
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
@@ -37,7 +58,8 @@ const Login = () => {
                                     label="Password"
                                     type="password"
                                     name="password"
-                                   // onChange={handleOnChange}
+                               
+                                     onChange={handleOnChange}
                                     InputLabelProps={{
                                         shrink: true,
                                     }}
