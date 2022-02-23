@@ -77,7 +77,7 @@ const UseFirebase = () => {
     }
 
 
-    return {user, GoogleSignin,Logout,emailpassRegister,passwordSign,isLoading }
+    return {user,error, GoogleSignin,Logout,emailpassRegister,passwordSign,isLoading }
 };
 
 export default UseFirebase;

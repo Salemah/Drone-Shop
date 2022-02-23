@@ -106,6 +106,10 @@ const Header = () => {
               <Button color="inherit">Shop</Button>
 
             </NavLink>
+            <NavLink style={{ textDecoration: 'none', color: 'white', mt: 2 }} to="/dashboard">
+              <Button color="inherit">Dashboard</Button>
+
+            </NavLink>
             {user?.email &&
 
               <Typography textAlign="center">{user.displayName}</Typography>
