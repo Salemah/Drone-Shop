@@ -21,6 +21,8 @@ import { Button } from '@mui/material';
 import { useRouteMatch } from 'react-router-dom';
 import UseAuth from '../../../Hook/UseAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import DashboardHome from '../DashboardHome/DashboardHome';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 
 const drawerWidth = 240;
 
@@ -28,7 +30,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { path, url } = useRouteMatch();
-  const {user} = UseAuth();
+  const { user,admin } = UseAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -36,17 +38,27 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+      {
+        user?.email &&
+        <Typography sx={{ color: '#EA5100' }} >
+          {user.displayName}
+        </Typography>
+      }
       <Divider />
       <List>
+
         
-          <ListItem button >
-            
-          {/* <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}/add`}><Button sx={{ bgcolor: 'error.main',width:'100%'}} color="inherit">Add Service</Button></Link> */}
-          <Link style={{ textDecoration: 'none', color: 'black' }} to={`${url}/add`}>add </Link>
-          </ListItem>
-     
+
+        <Link style={{ textDecoration: 'none', color: 'white' }} to={`${url}`}><Button sx={{ bgcolor: 'error.main', width: '100%' }} color="inherit">Dashboard</Button></Link>
+        <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to={`${url}/add`}><Button sx={{ bgcolor: 'error.main', width: '100%', my: 2 }} color="inherit">Add Product</Button> </Link><br />
+        <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to='/home'><Button sx={{ bgcolor: 'error.main', width: '100%',my:2 }} color="inherit">Home</Button></Link><br />
+       { admin &&
+          <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to={`${url}/makeadmin`}><Button sx={{ bgcolor: 'error.main', width: '100%' }} color="inherit">Make Admin</Button></Link>
+       }
+
+
       </List>
-      
+
     </div>
   );
 
@@ -114,29 +126,18 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-      
+
         <Switch>
-           <Route exact path={path}>
-            <Addproducts/>
-          </Route> 
+          <Route exact path={path}>
+            <DashboardHome />
+          </Route>
           <AdminRoute path={`${path}/add`}>
             <Addproducts />
           </AdminRoute>
-          {/* <Adminroute path={`${path}/add`}>
-            <Addservice />
-          </Adminroute>
-           <Route  path={`${path}/book`}>
-            <Avalivlaeservice />
-          </Route > 
-           <Route  path={`${path}/review`}>
-            <Review />
-          </Route > 
-           <Adminroute path={`${path}/allbooking`}>
-            <Orderlist />
-          </Adminroute> 
-           <Adminroute path={`${path}/makeadmin`}>
+          <AdminRoute path={`${path}/makeadmin`}>
             <MakeAdmin />
-          </Adminroute>  */}
+          </AdminRoute>
+
         </Switch>
 
       </Box>

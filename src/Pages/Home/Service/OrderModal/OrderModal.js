@@ -22,19 +22,21 @@ const style = {
 
  const OrderModal=( {order,openOrderModal,handleOrderClose,setOrderSuccess})=> {
      const{user}= UseAuth();
-    const { name,price,img,body } = order;
-    const [bookingInfo, setBookingInfo] = React.useState('' );
+    const { name,price,img,description } = order;
+    const initialInfo = { userName: user.displayName, email: user.email, phone: '' }
+    const [orderInfo, setOrderInfo] = React.useState(initialInfo);
 
     const handleOnChange = e =>{
       const field =  e.target.name;
       const value =  e.target.value;
-      const newData = {...bookingInfo};
+      const newData = {...orderInfo};
       newData[field]= value;
-      setBookingInfo(newData);
+      setOrderInfo(newData);
      };
      const handleBookingSubmit= e =>{
-        const booking ={...bookingInfo,
-       name,price,img,body,
+        const orders ={...orderInfo,
+       name,price,img,description,
+     
        status:'pending'
      
      }
@@ -43,7 +45,7 @@ const style = {
          headers:{
            'content-type':'application/json'
          },
-         body:JSON.stringify(booking)
+         body:JSON.stringify(orders )
        })
        .then(res=>res.json())
        .then(data =>{
@@ -79,7 +81,7 @@ const style = {
           <Typography id="transition-modal-title" variant="h6" component="h2">
                         {name}
                     </Typography>
-                    <form >
+                    <form onSubmit={handleBookingSubmit} >
                         <TextField
                             sx={{ width: '90%', m: 1 }}
                             id="outlined-size-small"
@@ -116,7 +118,7 @@ const style = {
                             defaultValue={price}
                             size="small"
                         /> 
-                        <Button type="submit" variant="contained">Submit</Button>
+                        <Button type="submit" variant="contained">Order</Button>
                     </form>
           </Box>
         </Fade>

@@ -34,14 +34,14 @@ const Services = () => {
                                     alt="Paella dish"
                                 />
                                 <Typography variant="h6" sx={{ fontWeight: 600, }} component="div">
-                                    {product.name.slice(0,20)}
+                                    {product.name}
                                 </Typography>
                                 <Typography variant="h5" sx={{ fontSize: 15, fontWeight: 500, color: '#F81FD3', }} component="div">
                                     {product.price}
                                 </Typography>
 
                                 <Typography variant="body2" sx={{ color: 'gray', my: 1 }} component="div">
-                                    {product.description.slice(0,100)
+                                    {product.description
                                     }
                                 </Typography>
                                <Link to='/allproducts' style={{textDecoration:'none'}}> <Button variant="contained" >Shop Now</Button></Link>

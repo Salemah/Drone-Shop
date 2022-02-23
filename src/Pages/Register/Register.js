@@ -18,7 +18,7 @@ const Register = () => {
 
     }
     const handleonSubmit = e => {
-        emailpassRegister(regdata.email, regdata.password, history);
+        emailpassRegister(regdata.email, regdata.password,regdata.name, history);
         e.preventDefault();
     }
 

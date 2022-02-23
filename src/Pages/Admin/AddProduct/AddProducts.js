@@ -32,7 +32,7 @@ const Addproducts = () => {
         const productss = {
             ...product
         }
-        fetch('http://localhost:5000//addproducts', {
+        fetch('http://localhost:5000/addproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -73,7 +73,7 @@ const Addproducts = () => {
                                 required
                                 sx={{ width: '80%', m: 1 }}
                                 id="outlined-size-small"
-                                name="body"
+                                name="description"
                                 variant="standard"
                                 size="small"
                                 placeholder='Service Description'

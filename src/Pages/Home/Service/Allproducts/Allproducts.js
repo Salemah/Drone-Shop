@@ -32,10 +32,11 @@ const Allproducts = ({ drones,setOrderSuccess }) => {
                         </Typography>
 
                         <Typography variant="body2" sx={{ color: 'gray', my: 1 }} component="div">
-                            {drones.description.slice(0, 120)
+                            {
+                            drones.description
                             }
                         </Typography>
-                        <Button variant="contained" onClick={handleorderOpen} >Book Service</Button>
+                        <Button variant="contained" onClick={handleorderOpen} >Buy Now</Button>
                     </CardContent>
                 </Card>
             </Grid>
