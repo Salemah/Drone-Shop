@@ -23,6 +23,7 @@ import UseAuth from '../../../Hook/UseAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageAllOrder from '../MnageAllorder/ManageAllorder';
 
 const drawerWidth = 240;
 
@@ -53,7 +54,10 @@ function Dashboard(props) {
         <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to={`${url}/add`}><Button sx={{ bgcolor: 'error.main', width: '100%', my: 2 }} color="inherit">Add Product</Button> </Link><br />
         <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to='/home'><Button sx={{ bgcolor: 'error.main', width: '100%',my:2 }} color="inherit">Home</Button></Link><br />
        { admin &&
-          <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to={`${url}/makeadmin`}><Button sx={{ bgcolor: 'error.main', width: '100%' }} color="inherit">Make Admin</Button></Link>
+          <Box>
+            <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to={`${url}/makeadmin`}><Button sx={{ bgcolor: 'error.main', width: '100%' }} color="inherit">Make Admin</Button></Link>
+            <Link style={{ textDecoration: 'none', width: '100%', color: 'black' }} to={`${url}/mangeorder`}><Button sx={{ bgcolor: 'error.main', width: '100%' }} color="inherit">Manage Order</Button></Link>
+          </Box>
        }
 
 
@@ -136,6 +140,9 @@ function Dashboard(props) {
           </AdminRoute>
           <AdminRoute path={`${path}/makeadmin`}>
             <MakeAdmin />
+          </AdminRoute>
+          <AdminRoute path={`${path}/mangeorder`}>
+            <ManageAllOrder />
           </AdminRoute>
 
         </Switch>
