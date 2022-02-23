@@ -42,8 +42,8 @@ const Hotdeals = () => {
                         <Button sx={{py:2}}> Buy Now </Button>
                     </Box>
 
-                    <Box style={{ background: `url(${b2})`,backgroundRepeat:'no-repeat',height: '250px',py:4}} >
-                        <Typography variant="h4" sx={{ pt: 4, px: 2 }}    >
+                    <Box style={{ background: `url(${b2})`,backgroundRepeat:'no-repeat',height: '250px',pt:4}} >
+                        <Typography variant="h4" sx={{ py: 4, px: 2 }}    >
                             Hot Products
                             Laptop Ultra 4K 16”
                         </Typography>

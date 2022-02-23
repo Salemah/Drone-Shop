@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -40,10 +41,10 @@ const Services = () => {
                                 </Typography>
 
                                 <Typography variant="body2" sx={{ color: 'gray', my: 1 }} component="div">
-                                    {product.description.slice(0,120)
+                                    {product.description.slice(0,100)
                                     }
                                 </Typography>
-                                <Button variant="contained" >Book Service</Button>
+                               <Link to='/allproducts' style={{textDecoration:'none'}}> <Button variant="contained" >Book Service</Button></Link>
                             </CardContent>
                             </Card>
                             </Grid>

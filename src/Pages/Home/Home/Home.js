@@ -16,6 +16,7 @@ const Home = () => {
             <Services></Services>
             <Divider></Divider>
             <Hotdeals></Hotdeals>
+            <Divider></Divider>
             <Review></Review>
         </div>
     );

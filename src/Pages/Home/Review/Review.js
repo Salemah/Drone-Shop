@@ -52,9 +52,10 @@ const Review = () => {
     };
 
     return (
-        <Container sx={{my:7}} data-aos="fade-down"
+        <Container sx={{my:7}} data-aos="fade-up"
         data-aos-easing="linear"
-        data-aos-duration="1500">
+        data-aos-duration="1500"
+        >
         <Typography variant="h4" gutterBottom component="div">
         Review
       </Typography>

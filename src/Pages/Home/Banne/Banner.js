@@ -4,6 +4,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Button, Container, Typography } from '@mui/material';
 import banner from '../../../images/banner.jpg'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
 
@@ -16,7 +17,7 @@ const Banner = () => {
                             IN BANGLADESH
                         </Typography>
 
-                        <Button variant="outlined" sx={{ color: '#EA5100', borderColor: 'white', my: 2 }}>Shop Now </Button>
+                       < Link to='/allproducts' style={{textDecoration:'none'}}><Button variant="outlined" sx={{ color: '#EA5100', borderColor: 'white', my: 2 }}>Shop Now </Button></Link>
                     </Box>
 
                 </Grid>

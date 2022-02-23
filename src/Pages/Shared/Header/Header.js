@@ -101,25 +101,18 @@ const Header = () => {
           </Typography>
         {/*  */}
           
-        <NavLink style={{ textDecoration: 'none', color: 'white',mt:2 }} to="/explore">
-            <Button color="inherit">Explore</Button>
+        <NavLink style={{ textDecoration: 'none', color: 'white',mt:2 }} to="/allproducts">
+            <Button color="inherit">Shop</Button>
+
+          </NavLink>
+          <NavLink style={{ textDecoration: 'none', color: 'white',mt:2 }} to="/login">
+            <Button color="inherit">Login</Button>
 
           </NavLink>
           {/* <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
             <Button color="inherit">Dashboard</Button>
 
           </NavLink> */}
-          
-         
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Home
-              </Button>
-            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home/Home';
 import Notfound from './Pages/Notfound/Notfound';
 import Explore from './Pages/Home/Explore/Explore';
 import Service from './Pages/Home/Service/Service/Service';
+import Login from './Pages/Login/Login/Login';
 
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
           <Route path="/explore">
             <Explore />
           </Route>
-          <Route path="/drone">
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/allproducts">
             <Service/>
           </Route>
           <Route path="*">
