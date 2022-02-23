@@ -44,7 +44,7 @@ const Services = () => {
                                     {product.description.slice(0,100)
                                     }
                                 </Typography>
-                               <Link to='/allproducts' style={{textDecoration:'none'}}> <Button variant="contained" >Book Service</Button></Link>
+                               <Link to='/allproducts' style={{textDecoration:'none'}}> <Button variant="contained" >Shop Now</Button></Link>
                             </CardContent>
                             </Card>
                             </Grid>
