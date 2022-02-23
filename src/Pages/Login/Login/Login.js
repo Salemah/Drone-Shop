@@ -6,10 +6,15 @@ import { Alert, Button, LinearProgress, TextField, Typography } from '@mui/mater
 import google from '../../../images/google.png'
 import { NavLink } from 'react-router-dom';
 import UseAuth from '../../../Hook/UseAuth';
+import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
 
 const Login = () => {
-   const{ GoogleSignin,passwordSign } = UseAuth();
+   const{ GoogleSignin,passwordSign, isLoading, user, error } = UseAuth();
    const [loginData, setLoginData] = React.useState({});
+   const location = useLocation();
+    const history = useHistory();
 
    const handleOnChange = e => {
     const feild = e.target.name;
@@ -22,10 +27,13 @@ const Login = () => {
 
 };
 const handleLoginSubmit = e => {
-    passwordSign(loginData.email, loginData.password);
+    passwordSign(loginData.email, loginData.password ,location, history);
     e.preventDefault();
 };
-
+const handleGoogleSignIn = () => {
+    GoogleSignin(location, history)
+    console.log(location);
+}
 
 
     return (
@@ -33,7 +41,7 @@ const handleLoginSubmit = e => {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
-                    
+                {!isLoading &&
                         <Box>
                             {/* <img src={} style={{ width: 100, marginTop: 46, marginBottom: '30px' }} alt="" /> */}
                             <Typography sx={{ py: 3, fontWeight: 600, fontSize: 20 }}> Login With</Typography>
@@ -72,14 +80,16 @@ const handleLoginSubmit = e => {
                              */}
 
 
-                            <Button  onClick={GoogleSignin}  sx={{ py: 1, color: 'black', borderRadius: 26 }} variant="outlined"> <img src={google} style={{ width: '8%', marginRight: '40px', marginLeft: 0 }} alt="" /> Continue With google</Button> <br />
+                            <Button  onClick={handleGoogleSignIn}  sx={{ py: 1, color: 'black', borderRadius: 26 }} variant="outlined"> <img src={google} style={{ width: '8%', marginRight: '40px', marginLeft: 0 }} alt="" /> Continue With google</Button> <br />
                             <NavLink
 
                                 style={{ textDecoration: 'none', }}
                                 to="/register"><Button variant="text" style={{ color: '#080808' }} sx={{ py: 2 }}>Don't Have an  account ? <span style={{ color: '#e307cd' }}>Create an Account</span></Button>
                             </NavLink>
                         </Box>
-                    
+}{
+                            isLoading && <LinearProgress />
+                        }
                 </Grid>
             </Grid>
         </Box>

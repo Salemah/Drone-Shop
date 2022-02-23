@@ -8,35 +8,42 @@ const UseFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const auth = getAuth();
     const googleprovider = new GoogleAuthProvider();
-    const GoogleSignin = () => {
+    const GoogleSignin = (location, history) => {
+        setIsLoading(true);
         signInWithPopup(auth, googleprovider)
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                const locationurl = location?.state?.from || '/home';
+                history.replace(locationurl);
                 setError('');
             }).catch((error) => {
                 setError(error.message);
 
-            });
+            }).finally(() => setIsLoading(false));
 
     }
-    const emailpassRegister = (email, password) => {
+    const emailpassRegister = (email, password,history) => {
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
               
                 const user = result.user;
                 setError('');
+                history.replace('/');
             })
             .catch((error) => {
                 setError(error.message);
-            });
+            }).finally(() => setIsLoading(false));
 
     }
     //Pass sign in
-    const passwordSign = (email, password) => {
+    const passwordSign = (email, password,location, history) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
+                const locationurl = location?.state?.from || '/home';
+                history.replace(locationurl);
                 
                 setError('');
             })
@@ -70,7 +77,7 @@ const UseFirebase = () => {
     }
 
 
-    return {user, GoogleSignin,Logout,emailpassRegister,passwordSign }
+    return {user, GoogleSignin,Logout,emailpassRegister,passwordSign,isLoading }
 };
 
 export default UseFirebase;

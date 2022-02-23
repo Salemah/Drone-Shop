@@ -8,6 +8,7 @@ import Service from './Pages/Home/Service/Service/Service';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Context/Authprovider';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -33,9 +34,9 @@ function App() {
   <Route path="/register">
     <Register/>
   </Route>
-  <Route path="/allproducts">
+  <PrivateRoute path="/allproducts">
     <Service/>
-  </Route>
+  </PrivateRoute>
   <Route path="*">
     <Notfound></Notfound>
   </Route>
