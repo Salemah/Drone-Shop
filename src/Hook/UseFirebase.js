@@ -87,7 +87,7 @@ const UseFirebase = () => {
     //save databse
     const saveUser = (email,displayName,method)=>{
         const user = {email, displayName}
-        fetch('http://localhost:5000/adduser',{
+        fetch('https://morning-citadel-41858.herokuapp.com/adduser',{
             method:method,
             headers:{
                 'content-type':'application/json'
@@ -100,7 +100,7 @@ const UseFirebase = () => {
     };
     //admin check
     useEffect(()=>{
-        fetch(`http://localhost:5000/adduser/${user?.email}`)
+        fetch(`https://morning-citadel-41858.herokuapp.com/adduser/${user?.email}`)
         .then(res=>res.json())
         .then(data=>setAdmin(data.admin))
     },[user.email])

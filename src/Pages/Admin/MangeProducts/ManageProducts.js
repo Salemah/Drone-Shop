@@ -19,7 +19,7 @@ const ManageProducts = () => {
   const handledelete = id => {
     const confirm = window.confirm("Are you sure to delete this products");
     if (confirm) {
-      fetch(`http://localhost:5000/product/${id}`, {
+      fetch(`https://morning-citadel-41858.herokuapp.com/product/${id}`, {
         method: 'DELETE',
         headers: {
           'content-type': 'application/json'
@@ -37,7 +37,7 @@ const ManageProducts = () => {
 
   React.useEffect(() => {
 
-    fetch(`http://localhost:5000/alldrone`)
+    fetch(`https://morning-citadel-41858.herokuapp.com/alldrone`)
       .then(res => res.json())
       .then(data => {
         setProducts(data)

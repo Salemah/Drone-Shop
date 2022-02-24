@@ -11,7 +11,7 @@ const DashboardHome = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/myorder?email=${user.email}`)
+        fetch(`https://morning-citadel-41858.herokuapp.com/myorder?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setOrder(data)
@@ -20,7 +20,7 @@ const DashboardHome = () => {
 
 
     const handledelete = id =>{
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://morning-citadel-41858.herokuapp.com/order/${id}`, {
                   method: 'DELETE',
                   headers: {
                       'content-type': 'application/json'

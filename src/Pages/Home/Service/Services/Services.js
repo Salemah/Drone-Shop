@@ -9,7 +9,7 @@ const Services = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/alldrone')
+        fetch('https://morning-citadel-41858.herokuapp.com/alldrone')
             .then(res => res.json())
             .then(data => setProducts(data))
 

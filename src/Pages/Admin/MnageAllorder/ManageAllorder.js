@@ -14,7 +14,7 @@ const ManageAllOrder = () => {
     
 const approve = id =>{
 
-  fetch(`http://localhost:5000/order/${id}`, {
+  fetch(`https://morning-citadel-41858.herokuapp.com/order/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -29,7 +29,7 @@ const approve = id =>{
   
 }
 const handledelete = id =>{
-  fetch(`http://localhost:5000/order/${id}`, {
+  fetch(`https://morning-citadel-41858.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -46,7 +46,7 @@ const handledelete = id =>{
   
     React.useEffect(() => {
 
-        fetch(`http://localhost:5000/allorder`)
+        fetch(`https://morning-citadel-41858.herokuapp.com/allorder`)
             .then(res => res.json())
             .then(data => {
                 setOrder(data)

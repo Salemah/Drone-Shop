@@ -17,7 +17,7 @@ const AddReview = () => {
     }
     const handleOnSubmit = e =>{
         const reviewdata ={...review}
-        fetch('http://localhost:5000/review',{
+        fetch('https://morning-citadel-41858.herokuapp.com/review',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

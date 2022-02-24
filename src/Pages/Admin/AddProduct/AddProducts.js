@@ -32,7 +32,7 @@ const Addproducts = () => {
         const productss = {
             ...product
         }
-        fetch('http://localhost:5000/addproducts', {
+        fetch('https://morning-citadel-41858.herokuapp.com/addproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

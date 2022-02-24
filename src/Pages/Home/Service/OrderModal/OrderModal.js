@@ -40,7 +40,7 @@ const style = {
        status:'pending'
      
      }
-       fetch('http://localhost:5000/orders',{
+       fetch('https://morning-citadel-41858.herokuapp.com/orders',{
          method:'POST',
          headers:{
            'content-type':'application/json'
