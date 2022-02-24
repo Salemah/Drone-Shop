@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import UseAuth from '../../../Hook/UseAuth';
-import { Card, CardContent, CardMedia, CircularProgress, Container, Typography } from '@mui/material';
+import { Button, Card, CardContent, CardMedia, CircularProgress, Container, Typography } from '@mui/material';
 
 const DashboardHome = () => {
     const [order, setOrder] = useState([]);
@@ -16,7 +16,24 @@ const DashboardHome = () => {
             .then(data => {
                 setOrder(data)
             })
-    }, []);
+    }, [order]);
+
+
+    const handledelete = id =>{
+        fetch(`http://localhost:5000/order/${id}`, {
+                  method: 'DELETE',
+                  headers: {
+                      'content-type': 'application/json'
+                  }
+              })
+                  .then(res => res.json())
+                  .then(data => {
+                      if (data?.deletedCount) {
+                          alert("Approved Successfully");
+                      }
+                  })
+      
+      }
     return (
         <Container>
 
@@ -49,7 +66,7 @@ const DashboardHome = () => {
                                             <Typography variant="body2" color="red" sx={{fontWeight:'600'}}>
                                                 {order.status}
                                             </Typography>
-
+                                            <Button sx={{ width: '80%', m: 1,backgroundColor:'red' }} onClick={()=>handledelete(order._id)}variant="contained">Cancel</Button>
                                             </Box>
 
                                         </CardContent>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Grid, Typography} from '@mui/material';
 import Slider from "react-slick";
 import a from '../../../images/Ellipse 91.png';
@@ -41,6 +41,17 @@ const reviewi = [{
   }]
 
 const Review = () => {
+  const [reviewi,setReviewi] = useState([]);
+useEffect(() => {
+
+    fetch(`http://localhost:5000/review`)
+        .then(res => res.json())
+        .then(data => {
+          setReviewi(data)
+            
+        })
+}, [reviewi])
+
     const  settings = {
         dots: true,
         infinite: true,
@@ -52,10 +63,7 @@ const Review = () => {
     };
 
     return (
-        <Container sx={{my:7}} data-aos="fade-up"
-        data-aos-easing="linear"
-        data-aos-duration="1500"
-        >
+        <Container sx={{my:7}} data-aos="fade-up">
         <Typography variant="h4" gutterBottom component="div">
         Review
       </Typography>
