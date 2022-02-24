@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword,onAuthStateChanged ,signOut,signInWithEmailAndPassword,updateProfile} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword,onAuthStateChanged ,signOut,signInWithEmailAndPassword,updateProfile,getIdToken} from "firebase/auth";
 import handleInitialize from '../Pages/Login/Firebase/FirebaseInitialize';
 handleInitialize();
 const UseFirebase = () => {
@@ -7,6 +7,7 @@ const UseFirebase = () => {
     const [error, setError] = useState('');
     const [admin, setAdmin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [token, setToken] = useState('');
     const auth = getAuth();
     const googleprovider = new GoogleAuthProvider();
     const GoogleSignin = (location, history) => {
@@ -67,7 +68,12 @@ const UseFirebase = () => {
     useEffect(() => {
         setIsLoading(true);
         const Unsubscribe = onAuthStateChanged(auth, (user) => {
+            
             if (user) {
+                getIdToken(user)
+                .then(idToken=> {
+                    setToken(idToken);
+                  })
                 setUser(user);
             } else {
                 setUser('');
@@ -109,7 +115,7 @@ const UseFirebase = () => {
     }
 
 
-    return {user,error,admin, GoogleSignin,Logout,emailpassRegister,passwordSign,isLoading }
+    return {user,error,admin,token, GoogleSignin,Logout,emailpassRegister,passwordSign,isLoading }
 };
 
 export default UseFirebase;

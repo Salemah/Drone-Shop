@@ -1,12 +1,13 @@
 import { Alert, Button, Container, Grid, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
+import UseAuth from '../../../Hook/UseAuth';
 
 
 const MakeAdmin = () => {
     const [Success, setSuccess] = useState(false);
     const [email, setEmail] = useState('');
-   
+    const {token} =  UseAuth();
     const handleOnChange = e => {
         setEmail(e.target.value);
 
@@ -17,7 +18,7 @@ const MakeAdmin = () => {
         fetch('http://localhost:5000/users/makeadmin', {
             method: 'PUT',
             headers: {
-                
+                'authorization': `Bearer ${token}`,
                 'content-type': 'application/json'
             }, body:JSON.stringify(user)
 

@@ -35,7 +35,7 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  console.log(user);
+
 
   return (
     <AppBar position="static">
