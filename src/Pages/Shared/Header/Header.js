@@ -47,7 +47,7 @@ const Header = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone S</Link>
+            <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone Shop</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -78,14 +78,19 @@ const Header = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
+
             >
 
-              <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink style={{ textDecoration: 'none', color: 'black', mt: 2 }} to="/explore">
-                  <Button color="inherit">Explore</Button>
 
-                </NavLink>
-              </MenuItem>
+              <NavLink style={{ textDecoration: 'none', color: 'black', mt: 2 }} to="/allproducts">
+                <Button sx={{ width: '100%' }} color="inherit">Shop</Button>
+
+              </NavLink><br />
+              <NavLink style={{ textDecoration: 'none', color: 'black', mt: 2 }} to="/dashboard">
+                <Button sx={{ width: '100%' }} color="inherit">Dashboard</Button>
+
+              </NavLink>
+
 
             </Menu>
           </Box>
@@ -96,7 +101,12 @@ const Header = () => {
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone Shop</Link>
+            {user?.email &&
+
+              <Typography textAlign="center" sx={{ mt: 1, ml: 12 }}>{user.displayName}</Typography>
+            }
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>  Drone Shop</Link>
@@ -107,29 +117,28 @@ const Header = () => {
               <Button color="inherit">Shop</Button>
 
             </NavLink>
-            <NavLink style={{ textDecoration: 'none', color: 'white', mt: 2 }} to="/dashboard">
-              <Button color="inherit">Dashboard</Button>
-
-            </NavLink>
+           
             {user?.email &&
+              <Box sx={{display:'flex'}}>
+                 <NavLink style={{ textDecoration: 'none', color: 'white', mt: 2 }} to="/dashboard">
+              <Button color="inherit">Dashboard</Button>
+            </NavLink>
+                <Typography textAlign="center" sx={{ my: 1 }}>{user.displayName}</Typography>
+              </Box>
 
-              <Typography textAlign="center">{user.displayName}</Typography>
 
 
             }
             {user?.email ?
               <Button onClick={Logout} color="inherit">Logout</Button> : <Link to='/login' > <Button sx={{ color: 'white', textDecoration: 'none' }}>Login</Button></Link>
             }
-            {/* <NavLink style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
-            <Button color="inherit">Dashboard</Button>
 
-          </NavLink> */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={user.photoURL}/>
+                <Avatar alt="Remy Sharp" src={user.photoURL} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -148,11 +157,13 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+
+              <MenuItem onClick={handleCloseUserMenu}>
+                {user?.email ?
+                  <Button onClick={Logout} color="inherit">Logout</Button> : <Link to='/login' > <Button sx={{ color: 'white', textDecoration: 'none' }}>Login</Button></Link>
+                }
+              </MenuItem>
+
             </Menu>
           </Box>
         </Toolbar>

@@ -35,11 +35,7 @@ const OrderUpdateModal = ({ products, productopen, handleproductClose }) => {
     setOrderInfo(newData);
   };
   const handleBookingSubmit = e => {
-
-
-
-
-    e.preventDefault();
+      e.preventDefault();
 
 
   }

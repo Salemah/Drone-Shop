@@ -1,5 +1,6 @@
 import { Divider } from '@mui/material';
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 import Banner from '../Banne/Banner';
 import Hotdeals from '../HotDeals/Hotdeals';
@@ -18,6 +19,7 @@ const Home = () => {
             <Hotdeals></Hotdeals>
             <Divider></Divider>
             <Review></Review>
+            <Footer></Footer>
         </div>
     );
 };

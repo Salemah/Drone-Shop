@@ -26,9 +26,7 @@ function App() {
   <Route path="/home">
     <Home></Home>
   </Route>
-  <Route path="/explore">
-    <Explore />
-  </Route>
+  
   <Route path="/login">
     <Login />
   </Route>
