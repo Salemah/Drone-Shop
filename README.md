@@ -1,4 +1,7 @@
+Live site: https://droneshop-6d94c.web.app/home
+
 Description
+
 Drone  shop is a platform where someone can find their favourite Drone through online.
 An user can shop and save for later.
 In the dashboard section user can see his list of choosen product from he/she can cancel the order also.
